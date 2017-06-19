@@ -1,36 +1,36 @@
-#🌺 Smart flower pot - Prototype 🌺
+# 🌺 Smart flower pot - Prototype 🌺
 
 Created by Attila Kiss, Daniel Tombor
 Created on Jun 19., 2017
 
-##Table of contents
-1. [Outline][]
-    1. [Purpose of this document][]
-    2. [Purpose of the project][]
-2. [Hardware specification][]
-    1. [Functionalities][]
-    2. [Components][]
-    3. [Behaviors][]
-3. [Software specification][]
-    1. [Serverside][]
-    2. [Mobile client][]
-4. [Schedule][]
-5. [Further development opportunities][]
-    1. [First production version - v1][]
-        1. [Hardware][]
-        2. [Server][]
-        3. [Client][]
-    2. [Enhanced version - v2][]
+## Table of contents
+1. [Outline](#outline)
+    1. [Purpose of this document](#purpose-of-doc)
+    2. [Purpose of the project](#purpose-of-proj)
+2. [Hardware specification](#hardware-spec)
+    1. [Functionalities](#functionalities)
+    2. [Components](#components)
+    3. [Behaviors](#behaviors)
+3. [Software specification](#software-spec)
+    1. [Serverside](#serverside)
+    2. [Mobile client](#mobile-client)
+4. [Schedule](#schedule)
+5. [Further development opportunities](#furhter-dev)
+    1. [First production version - v1](#v1)
+        1. [Hardware](#v1-hardware)
+        2. [Server](#v1-server)
+        3. [Client](#v1-client)
+    2. [Enhanced version - v2](#v2)
 
-##Outline
+## <a name="outline"></a>Outline
 
-###Purpose of this document
+### <a name="purpose-of-doc"></a>Purpose of this document
 
 This document is the functional specification of the project.
 It is a guide for the development which we can refer to.
 It has to cointain the main purposes, use-cases and functionalities of the components.
 
-###Purpose of the project
+### <a name="purpose-of-proj"></a>Purpose of the project
 
 The main purpose of the project is as simple as to keep developers' flowers alive.
 The smart flowerpot wets the potting soil when it's needed and notifies the user when to refil the tank of the pot.
@@ -40,11 +40,11 @@ Some other extra features are
 - display current status & statistics in a mobile app connected to the hardware
 - IoT capabilites
 
-##Hardware specification
+## <a name="hardware-spec"></a>Hardware specification
 
 The prototype is not design by professional product and electric engineers. It's a proof-of-concept with out-of-the-box components, like a Raspberry Pi with some extra accessories (sensors).
 
-###Functionalities
+### <a name="functionalities"></a>Functionalities
 
 The functionality of the hardware is quite simple. 
 Observing it from a high abstraction level, it should be able to do only 3 things:
@@ -52,7 +52,7 @@ Observing it from a high abstraction level, it should be able to do only 3 thing
 * notifing the user to fill the water tank
 * share sensors' data with the connected devices
 
-###Components
+### <a name="components"></a>Components
 
 To achive the desired functionalites the hardware has to contain the following components:
 * RaspberryPi Zero W
@@ -65,18 +65,18 @@ To achive the desired functionalites the hardware has to contain the following c
 * a battery - power source for RaspberryPi
 * *a huge* water tank with a water tap
 
-###Behaviors
+### <a name="behaviors"></a>Behaviors
 
 The hardware needs power supply to operate, which should be a battery in order to avoid cabels and make the flowerpot more portable. Once a charged battery is installed, the flowerpot should just work without having to switch it on. This means no buttons are needed at all.
 When the flowerpot is operating, leds should indicate the water level in the tank. When every led emits white light, the tank is full, and when its getting empty, leds start to goes out. If the water reaches a critical level in the tank, the hardware should beep in every 8 hours and when its (nearly) empty it should beep in every 2 hours.
 The first prototype wont have a complex wetting algorythm, it will only check the humidity of the potting soil.
 A read-only bluetooth interface is going to be available as well to which a smartphone can connect. The bluetooth interface shoud provide data about the battery status, the current humidity of the soil, the water level and the temperature.
 
-##Software specification
+## <a name="software-spec"></a>Software specification
 
 The project contains both server and client side applications.
 
-###Serverside
+### <a name="serverside"></a>Serverside
 
 The purpose of the server side application is storing data to make it avaiablre from multiple devices of the user.
 The prototype hardware will not communicate to the server directly, since it's not a requirement to have WiFi capabilities.
@@ -89,14 +89,14 @@ Functionalities of the serverside:
     * Type of the flower planted in the pot
     * Daily sensor data (humidity, temperature, light, water consumption)
 
-###Mobile Client
+### <a name="mobile-client"></a>Mobile Client
 
 Functinalities of the mobile client:
 * User management
 * Connecting to hardware (and read data) by bluetooth
 * Wire data to user & sync to the server
 
-##Schedule
+## <a name="schedule"></a>Schedule
 
 **Development**
 * Jun 22. - Specification
@@ -110,9 +110,9 @@ Functinalities of the mobile client:
 **Collecting background knowledge**
 * ???
 
-##Further development opportunities
+## <a name="furhter-dev"></a>Further development opportunities
 
-###First production version - v1
+### <a name="v1"></a>First production version - v1
 
 Hardware should handle multiple users & connections (prepare for family usage).
 A great function would be a soical platform where everybody could be share their experiences/statistics/pictures of their flowers.
@@ -120,22 +120,22 @@ So a user can search for a type of flower and see what conditions are good for t
 Or vicaversa, user can search for a condition and the application suggests flowers to buy.
 (This will be reffered to as 'social features' at platform improvements below)
 
-####Hardware
+#### <a name="v1-hardware"></a>Hardware
 
 By extending the connectivity by WiFi, the hardware would be able to connect to the server directly. 
 By this it could sync the sensors' data without mobile client, and the user could check the flowerpot from remote.
 
-####Server
+#### <a name="v1-server"></a>Server
 
 * In the production version the server should handle Social login as well (Facebook, Twitter, Google).
 * Social features
 
-####Client
+#### <a name="v1-client"></a>Client
 
 * Client should be list & reach remote pots.
 * Social features
 
-###Enhanced version - v2
+### <a name="v2"></a>Enhanced version - v2
 
 Fine tuning the wetting system, tailored for the current conditions (flower type, daylight length & power of the light, temperature, humidity, water consumption).
 This automated tailored wetting should be reached by processing the collected statistics and analized with machine learning.
