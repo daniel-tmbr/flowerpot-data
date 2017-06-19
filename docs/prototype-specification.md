@@ -1,6 +1,6 @@
 # 🌺 Smart flower pot - Prototype 🌺
 
-Created by Attila Kiss, Daniel Tombor
+Created by Attila Kiss, Daniel Tombor<br/>
 Created on Jun 19., 2017
 
 ## Table of contents
